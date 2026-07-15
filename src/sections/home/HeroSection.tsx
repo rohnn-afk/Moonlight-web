@@ -21,57 +21,71 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
         <HeroCopy />
         <div className="hidden min-h-[640px] items-center justify-end lg:flex">
-          <div className="relative w-full max-w-[610px]">
-            <div className="absolute -left-7 top-12 z-20 w-56 overflow-hidden rounded-lg border border-white/12 bg-[#f7f1e8]/8 p-3 shadow-2xl backdrop-blur-xl">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-md">
-                <Image
-                  src="/images/fabric-macro-silk.png"
-                  alt="Silk and lace material detail"
-                  fill
-                  sizes="260px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="mt-3 flex items-center justify-between gap-3">
-                <p className="text-xs uppercase tracking-[0.18em] text-[#dde6f2]/58">
-                  Silk grade
-                </p>
-                <p className="text-sm text-[#f7f1e8]">19 momme</p>
-              </div>
-            </div>
-            <div className="ml-auto w-[430px] overflow-hidden rounded-lg border border-white/12 bg-[#f7f1e8]/8 p-3 shadow-[0_30px_120px_rgba(0,0,0,0.42)] backdrop-blur-xl">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-md">
-                <Image
-                  src="/images/product-vignettes.png"
-                  alt="Curated luxury nightwear pieces"
-                  fill
-                  sizes="380px"
-                  className="object-cover"
-                />
-                <div className="absolute left-4 top-4 rounded-full border border-white/18 bg-[#070a12]/58 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-[#f7f1e8] backdrop-blur">
-                  New season
+          <div className="relative w-full max-w-[620px]">
+            <div className="absolute -inset-8 rounded-full bg-[#afc7e8]/10 blur-3xl" />
+            <div className="relative overflow-hidden rounded-lg border border-white/12 bg-[#070a12]/58 p-4 shadow-[0_34px_140px_rgba(0,0,0,0.48)] backdrop-blur-xl">
+              <div className="grid gap-4 xl:grid-cols-[0.72fr_1fr]">
+                <div className="grid content-between gap-4">
+                  <div className="rounded-md border border-[#c8b68a]/18 bg-[#c8b68a]/10 p-4">
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-[#e8d6aa]">
+                      Atelier note
+                    </p>
+                    <p className="editorial-serif mt-3 text-3xl leading-none text-[#f7f1e8]">
+                      Silk with a cool, moonlit hand-feel.
+                    </p>
+                  </div>
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-md border border-white/10">
+                    <Image
+                      src="/images/fabric-macro-silk.png"
+                      alt="Silk and lace material detail"
+                      fill
+                      sizes="230px"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+
+                <div className="overflow-hidden rounded-md border border-white/10 bg-white/[0.035]">
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <Image
+                      src="/images/product-vignettes.png"
+                      alt="Curated luxury nightwear pieces"
+                      fill
+                      sizes="390px"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#070a12]/36 via-transparent to-transparent" />
+                    <div className="absolute left-4 top-4 rounded-full border border-white/18 bg-[#070a12]/62 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-[#f7f1e8] backdrop-blur">
+                      New season
+                    </div>
+                  </div>
+                  <div className="grid gap-4 p-4">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.18em] text-[#dde6f2]/48">
+                          Signature edit
+                        </p>
+                        <p className="mt-1 font-medium text-[#f7f1e8]">
+                          Silk sets, robes, and slip dresses
+                        </p>
+                      </div>
+                      <p className="whitespace-nowrap text-sm text-[#f7f1e8]">From $198</p>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2 text-center text-xs text-[#dde6f2]/58">
+                      {[
+                        ["19", "Momme"],
+                        ["24h", "Dispatch"],
+                        ["4", "Collections"],
+                      ].map(([value, label]) => (
+                        <div key={label} className="rounded-md border border-white/10 bg-[#070a12]/44 p-3">
+                          <p className="text-base font-medium text-[#f7f1e8]">{value}</p>
+                          <p className="mt-1 uppercase tracking-[0.12em]">{label}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="grid gap-3 px-1 pt-4">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-[#dde6f2]/64">Signature edit</span>
-                  <span className="text-[#f7f1e8]">From $198</span>
-                </div>
-                <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
-                  <div className="h-full w-[72%] rounded-full bg-[#c8b68a]" />
-                </div>
-                <p className="text-xs uppercase tracking-[0.16em] text-[#dde6f2]/48">
-                  72% of launch stock allocated
-                </p>
-              </div>
-            </div>
-            <div className="absolute -bottom-8 right-8 rounded-lg border border-[#c8b68a]/22 bg-[#070a12]/72 px-5 py-4 shadow-2xl backdrop-blur-xl">
-              <p className="text-xs uppercase tracking-[0.18em] text-[#c8b68a]">
-                Boutique standard
-              </p>
-              <p className="mt-2 text-sm text-[#dde6f2]/70">
-                Gift wrap, exchanges, and stock-reserved checkout.
-              </p>
             </div>
           </div>
         </div>
