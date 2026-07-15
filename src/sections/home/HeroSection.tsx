@@ -21,40 +21,27 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
         <HeroCopy />
         <div className="hidden min-h-[640px] items-center justify-end lg:flex">
-          <div className="relative h-[650px] w-full max-w-[680px]">
-            <div className="absolute left-16 top-8 h-[590px] w-px bg-gradient-to-b from-transparent via-[#c8b68a]/38 to-transparent" />
-            <div className="absolute left-0 top-32 max-w-[220px] border-l border-[#c8b68a]/32 pl-5">
-              <p className="text-[11px] uppercase tracking-[0.28em] text-[#e8d6aa]">
-                Moon room edit
-              </p>
-              <p className="editorial-serif mt-4 text-4xl leading-[0.95] text-[#f7f1e8]">
-                Drape, sheen, and silence.
-              </p>
-              <p className="mt-5 text-sm leading-6 text-[#dde6f2]/58">
-                A calm composition of silk sets, robes, slips, and lounge layers.
-              </p>
-            </div>
-
-            <div className="absolute right-0 top-7 h-[560px] w-[460px] overflow-hidden rounded-lg border border-white/12 bg-[#070a12]/32 shadow-[0_34px_130px_rgba(0,0,0,0.46)] [clip-path:polygon(7%_0,100%_0,93%_100%,0_100%)]">
+          <div className="relative h-[650px] w-full max-w-[660px]">
+            <div className="absolute left-8 top-0 h-[620px] w-[520px] rounded-full border border-[#c8b68a]/18" />
+            <div className="absolute left-20 top-12 h-[520px] w-[430px] rounded-full border border-[#dde6f2]/10" />
+            <div className="absolute right-8 top-12 h-[560px] w-[390px] overflow-hidden rounded-t-[220px] rounded-b-[34px] border border-white/14 bg-[#070a12]/40 shadow-[0_34px_130px_rgba(0,0,0,0.46)]">
               <Image
                 src="/images/product-vignettes.png"
                 alt="Curated luxury nightwear pieces"
                 fill
-                sizes="460px"
+                sizes="390px"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,18,0.08)_0%,rgba(7,10,18,0.05)_46%,rgba(7,10,18,0.56)_100%)]" />
-              <div className="absolute left-12 top-6 border-b border-[#c8b68a]/45 pb-2 text-[11px] uppercase tracking-[0.22em] text-[#f7f1e8]">
-                New season
-              </div>
-              <div className="absolute bottom-9 left-12 right-10">
-                <div className="flex items-end justify-between gap-8">
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,18,0.04)_0%,rgba(7,10,18,0.18)_48%,rgba(7,10,18,0.72)_100%)]" />
+              <div className="absolute inset-x-8 bottom-8">
+                <div className="h-px bg-gradient-to-r from-transparent via-[#c8b68a]/70 to-transparent" />
+                <div className="mt-5 flex items-end justify-between gap-6">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-[#dde6f2]/54">
-                      Signature edit
+                    <p className="text-[11px] uppercase tracking-[0.24em] text-[#e8d6aa]">
+                      Moon room edit
                     </p>
-                    <p className="mt-2 max-w-[230px] text-lg font-medium leading-6 text-[#f7f1e8]">
-                      Silk sets, robes, and slip dresses
+                    <p className="editorial-serif mt-2 text-3xl leading-none text-[#f7f1e8]">
+                      Silk after dark.
                     </p>
                   </div>
                   <p className="whitespace-nowrap text-sm text-[#f7f1e8]">From $198</p>
@@ -62,30 +49,43 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="absolute bottom-16 left-[170px] h-[245px] w-[315px] overflow-hidden rounded-lg border border-white/14 bg-[#070a12]/42 shadow-[0_26px_90px_rgba(0,0,0,0.4)] [clip-path:polygon(0_9%,100%_0,91%_100%,7%_94%)]">
+            <div className="absolute left-10 top-28 max-w-[230px]">
+              <p className="text-[11px] uppercase tracking-[0.28em] text-[#e8d6aa]">
+                Atelier calm
+              </p>
+              <p className="editorial-serif mt-4 text-4xl leading-[0.95] text-[#f7f1e8]">
+                Drape, sheen, silence.
+              </p>
+              <p className="mt-5 text-sm leading-6 text-[#dde6f2]/60">
+                A softer product stage, built to slow the eye before the buy.
+              </p>
+            </div>
+
+            <div className="absolute bottom-24 left-0 h-[230px] w-[300px] overflow-hidden rounded-tl-[90px] rounded-br-[90px] border border-white/14 bg-[#070a12]/44 shadow-[0_26px_90px_rgba(0,0,0,0.38)]">
               <Image
                 src="/images/fabric-macro-silk.png"
                 alt="Silk and lace material detail"
                 fill
-                sizes="315px"
+                sizes="300px"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#070a12]/24 via-transparent to-[#f7f1e8]/8" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#070a12]/20 via-transparent to-[#f7f1e8]/10" />
             </div>
 
-            <div className="absolute bottom-0 right-8 grid w-[430px] grid-cols-3 border-y border-white/12 bg-[#070a12]/54 text-center shadow-[0_18px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
-              {[
-                ["19", "Momme silk"],
-                ["24h", "Dispatch"],
-                ["4", "Collections"],
-              ].map(([value, label]) => (
-                <div key={label} className="border-r border-white/10 px-4 py-4 last:border-r-0">
-                  <p className="text-xl font-medium text-[#f7f1e8]">{value}</p>
-                  <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[#dde6f2]/50">
-                    {label}
-                  </p>
-                </div>
-              ))}
+            <div className="absolute bottom-5 left-16 flex items-center gap-4 border-y border-white/12 bg-[#070a12]/58 px-6 py-4 shadow-[0_18px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+              <div>
+                <p className="text-xl font-medium text-[#f7f1e8]">19</p>
+                <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[#dde6f2]/50">
+                  Momme silk
+                </p>
+              </div>
+              <div className="h-10 w-px bg-white/12" />
+              <div>
+                <p className="text-xl font-medium text-[#f7f1e8]">24h</p>
+                <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[#dde6f2]/50">
+                  Dispatch
+                </p>
+              </div>
             </div>
           </div>
         </div>
