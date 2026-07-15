@@ -39,6 +39,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   text-rendering: geometricPrecision;
+  font-feature-settings: "kern", "liga", "calt";
 }
 
 a {
@@ -59,6 +60,7 @@ select {
 
 .editorial-serif {
   font-family: var(--font-serif), Georgia, serif;
+  letter-spacing: 0;
 }
 
 .moon-panel {
