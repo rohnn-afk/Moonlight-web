@@ -27,7 +27,7 @@ export default function LookbookPage() {
               href={`/products/${product.handle}`}
               className="group relative min-h-[520px] overflow-hidden rounded-lg soft-border"
             >
-              <Image src={product.image} alt={product.name} fill className="object-cover transition duration-700 group-hover:scale-105" />
+              <Image src={product.images[0]} alt={product.name} fill className="object-cover transition duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#070a12]/88 to-transparent" />
               <div className="absolute bottom-0 p-6">
                 <p className="text-xs uppercase tracking-[0.28em] text-[#c8b68a]">Shop the look</p>

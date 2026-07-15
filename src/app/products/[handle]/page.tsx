@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ProductCard } from "@/components/product/product-card";
 import { AddToCartPanel } from "@/components/product/add-to-cart-panel";
+import { ProductGallery } from "@/components/product/product-gallery";
 import { getProduct, products } from "@/data/products";
 import { formatCurrency } from "@/lib/format";
 
@@ -30,15 +30,7 @@ export default async function ProductPage({
   return (
     <main className="mx-auto max-w-7xl px-4 pb-24 pt-28 sm:px-6 lg:px-8">
       <section className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="grid gap-4">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-lg soft-border">
-            <Image src={product.image} alt={product.name} fill priority className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070a12]/42 to-transparent" />
-          </div>
-          <div className="relative aspect-[16/9] overflow-hidden rounded-lg soft-border">
-            <Image src="/images/fabric-macro-silk.png" alt={`${product.name} fabric macro detail`} fill className="object-cover" />
-          </div>
-        </div>
+        <ProductGallery images={product.images} productName={product.name} />
 
         <div className="lg:sticky lg:top-24 lg:self-start">
           <p className="text-xs uppercase tracking-[0.32em] text-[#c8b68a]">{product.category}</p>

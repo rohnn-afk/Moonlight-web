@@ -38,7 +38,11 @@ export const products: Product[] = [
     color: "Pearl Ivory",
     material: "19 momme silk satin",
     sizes: ["XS", "S", "M", "L", "XL"],
-    image: "/images/product-vignettes.png",
+    images: [
+      "/images/product-vignettes.png",
+      "/images/collection-moonlit-lineup.png",
+      "/images/fabric-macro-silk.png",
+    ],
     description:
       "A luminous silk set with contrast piping, relaxed tailoring, and a cool hand-feel.",
     details: ["Mother-of-pearl buttons", "Elastic waist trouser", "French seams"],
@@ -56,7 +60,11 @@ export const products: Product[] = [
     color: "Midnight Black",
     material: "Silk satin with lace cuff",
     sizes: ["XS/S", "M/L", "XL"],
-    image: "/images/product-vignettes.png",
+    images: [
+      "/images/collection-moonlit-lineup.png",
+      "/images/product-vignettes.png",
+      "/images/fabric-macro-silk.png",
+    ],
     description:
       "A fluid black robe with a soft waist tie and delicate lace edge at the cuff.",
     details: ["Removable sash", "Interior tie", "Falls above the knee"],
@@ -74,7 +82,11 @@ export const products: Product[] = [
     color: "Dust Rose",
     material: "Silk charmeuse and lace",
     sizes: ["XS", "S", "M", "L"],
-    image: "/images/product-vignettes.png",
+    images: [
+      "/images/product-vignettes.png",
+      "/images/atelier-showcase.png",
+      "/images/fabric-macro-silk.png",
+    ],
     description:
       "A softly draped slip with a sculpted lace neckline and moonlit sheen.",
     details: ["Adjustable straps", "Bias cut", "Mid-thigh length"],
@@ -92,7 +104,11 @@ export const products: Product[] = [
     color: "Warm Pearl",
     material: "Brushed modal knit",
     sizes: ["XS", "S", "M", "L", "XL"],
-    image: "/images/product-vignettes.png",
+    images: [
+      "/images/collection-moonlit-lineup.png",
+      "/images/product-vignettes.png",
+      "/images/fabric-macro-silk.png",
+    ],
     description:
       "An airy lounge set with a relaxed long sleeve top and soft drawstring pant.",
     details: ["Breathable modal", "Soft rib finish", "Easy relaxed fit"],

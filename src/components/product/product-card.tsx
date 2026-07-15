@@ -16,7 +16,7 @@ export function ProductCard({ product }: { product: Product }) {
       <Link href={`/products/${product.handle}`} className="block">
         <div className="relative aspect-[4/5] overflow-hidden bg-[#111827]">
           <Image
-            src={product.image}
+            src={product.images[0]}
             alt={product.name}
             fill
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"

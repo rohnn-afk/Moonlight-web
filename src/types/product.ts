@@ -1,3 +1,5 @@
+export type ProductImages = [string, ...string[]];
+
 export type Product = {
   handle: string;
   sku: string;
@@ -8,7 +10,7 @@ export type Product = {
   color: string;
   material: string;
   sizes: string[];
-  image: string;
+  images: ProductImages;
   description: string;
   details: string[];
   inventory: number;

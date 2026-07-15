@@ -19,10 +19,9 @@ import {
 } from "lucide-react";
 import type { LucideProps } from "lucide-react";
 import { products as seededProducts } from "@/data/products";
-import type { Product } from "@/types/product";
+import type { Product, ProductImages } from "@/types/product";
 
-const STORAGE_KEY = "lune-maison-admin-products";
-const defaultImage = "/images/product-vignettes.png";
+const STORAGE_KEY = "moonlight-feels-admin-products-v2";
 
 type ProductForm = {
   name: string;
@@ -33,7 +32,7 @@ type ProductForm = {
   color: string;
   material: string;
   sizes: string;
-  image: string;
+  images: string[];
   description: string;
   details: string;
   inventory: string;
@@ -57,7 +56,7 @@ const emptyForm: ProductForm = {
   color: "",
   material: "",
   sizes: "XS, S, M, L, XL",
-  image: defaultImage,
+  images: [],
   description: "",
   details: "Premium finish, Gift-ready packaging, Easy exchange",
   inventory: "12",
@@ -116,6 +115,8 @@ export function AdminPanel() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<"all" | Product["status"] | "low">("all");
   const [selectedHandle, setSelectedHandle] = useState<string | null>(null);
+  const [imageUrl, setImageUrl] = useState("");
+  const [formError, setFormError] = useState("");
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -162,13 +163,15 @@ export function AdminPanel() {
     { label: "Stock value", value: `$${metrics.value.toLocaleString()}`, Icon: BarChart3 },
   ];
 
-  function updateForm(field: keyof ProductForm, value: string | boolean) {
+  function updateForm<K extends keyof ProductForm>(field: K, value: ProductForm[K]) {
     setForm((current) => ({ ...current, [field]: value }));
   }
 
   function resetForm() {
     setForm(emptyForm);
     setSelectedHandle(null);
+    setImageUrl("");
+    setFormError("");
   }
 
   function editProduct(product: Product) {
@@ -182,7 +185,7 @@ export function AdminPanel() {
       color: product.color,
       material: product.material,
       sizes: product.sizes.join(", "),
-      image: product.image,
+      images: product.images,
       description: product.description,
       details: product.details.join(", "),
       inventory: String(product.inventory),
@@ -195,7 +198,13 @@ export function AdminPanel() {
   function saveProduct(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    if (form.images.length === 0) {
+      setFormError("Add at least one product image before saving.");
+      return;
+    }
+
     const handle = selectedHandle ?? slugify(form.name);
+    const images = form.images as ProductImages;
     const product: Product = {
       handle,
       sku: form.sku || `LM-${Date.now().toString().slice(-6)}`,
@@ -206,7 +215,7 @@ export function AdminPanel() {
       color: form.color,
       material: form.material,
       sizes: parseList(form.sizes),
-      image: form.image || defaultImage,
+      images,
       description: form.description,
       details: parseList(form.details),
       inventory: Number(form.inventory) || 0,
@@ -243,15 +252,58 @@ export function AdminPanel() {
     );
   }
 
-  function handleImageUpload(event: React.ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
-    if (!file) {
+  function addImageUrl() {
+    const nextUrl = imageUrl.trim();
+    if (!nextUrl) {
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = () => updateForm("image", String(reader.result));
-    reader.readAsDataURL(file);
+    updateForm("images", [...form.images, nextUrl]);
+    setImageUrl("");
+    setFormError("");
+  }
+
+  function removeImage(index: number) {
+    updateForm(
+      "images",
+      form.images.filter((_, currentIndex) => currentIndex !== index),
+    );
+  }
+
+  function moveImage(index: number, direction: -1 | 1) {
+    const targetIndex = index + direction;
+    if (targetIndex < 0 || targetIndex >= form.images.length) {
+      return;
+    }
+
+    const nextImages = [...form.images];
+    [nextImages[index], nextImages[targetIndex]] = [
+      nextImages[targetIndex],
+      nextImages[index],
+    ];
+    updateForm("images", nextImages);
+  }
+
+  function handleImageUpload(event: React.ChangeEvent<HTMLInputElement>) {
+    const files = Array.from(event.target.files ?? []);
+    if (files.length === 0) {
+      return;
+    }
+
+    Promise.all(
+      files.map(
+        (file) =>
+          new Promise<string>((resolve) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(String(reader.result));
+            reader.readAsDataURL(file);
+          }),
+      ),
+    ).then((images) => {
+      updateForm("images", [...form.images, ...images]);
+      setFormError("");
+      event.target.value = "";
+    });
   }
 
   return (
@@ -312,32 +364,95 @@ export function AdminPanel() {
               </button>
             </div>
 
-            <label className="mt-6 block">
-              <span className="text-xs uppercase tracking-[0.18em] text-[#dde6f2]/54">Image</span>
-              <div className="mt-3 grid gap-3 sm:grid-cols-[120px_1fr]">
-                <div className="relative aspect-square overflow-hidden rounded-md border border-white/12 bg-[#111827]">
-                  {form.image.startsWith("data:") ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={form.image} alt="" className="h-full w-full object-cover" />
-                  ) : (
-                    <Image src={form.image} alt="" fill sizes="120px" className="object-cover" />
-                  )}
-                </div>
-                <div className="grid content-center gap-3">
+            <section className="mt-6">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-xs uppercase tracking-[0.18em] text-[#dde6f2]/54">
+                  Product gallery
+                </span>
+                <span className="text-xs text-[#dde6f2]/42">
+                  First image is primary
+                </span>
+              </div>
+              <div className="mt-3 grid gap-3">
+                {form.images.length > 0 ? (
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                    {form.images.map((image, index) => (
+                      <div
+                        key={`${image}-${index}`}
+                        className="overflow-hidden rounded-md border border-white/12 bg-[#111827]"
+                      >
+                        <div className="relative aspect-[4/5]">
+                          <AdminImage src={image} />
+                          {index === 0 ? (
+                            <span className="absolute left-2 top-2 rounded-full bg-[#f7f1e8] px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#070a12]">
+                              Primary
+                            </span>
+                          ) : null}
+                        </div>
+                        <div className="grid grid-cols-3 border-t border-white/10 text-xs text-[#dde6f2]/70">
+                          <button
+                            type="button"
+                            onClick={() => moveImage(index, -1)}
+                            className="h-9 border-r border-white/10 disabled:opacity-30"
+                            disabled={index === 0}
+                          >
+                            Up
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => moveImage(index, 1)}
+                            className="h-9 border-r border-white/10 disabled:opacity-30"
+                            disabled={index === form.images.length - 1}
+                          >
+                            Down
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => removeImage(index)}
+                            className="h-9 text-red-100"
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="rounded-md border border-dashed border-white/16 bg-[#070a12]/54 p-5 text-sm text-[#dde6f2]/56">
+                    Add at least one image to publish this product.
+                  </div>
+                )}
+                <div className="grid gap-3 sm:grid-cols-[1fr_auto_auto]">
                   <input
-                    value={form.image}
-                    onChange={(event) => updateForm("image", event.target.value)}
+                    value={imageUrl}
+                    onChange={(event) => setImageUrl(event.target.value)}
                     className="h-11 rounded-md border border-white/12 bg-[#070a12]/70 px-3 text-sm outline-none transition focus:border-[#c8b68a]/60"
                     placeholder="/images/product-vignettes.png"
                   />
-                  <label className="inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-md border border-white/12 text-sm text-[#dde6f2] transition hover:border-white/36">
+                  <button
+                    type="button"
+                    onClick={addImageUrl}
+                    className="h-11 rounded-md border border-white/12 px-4 text-sm text-[#dde6f2] transition hover:border-white/36"
+                  >
+                    Add URL
+                  </button>
+                  <label className="inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-md border border-white/12 px-4 text-sm text-[#dde6f2] transition hover:border-white/36">
                     <Upload size={16} />
-                    Upload image
-                    <input type="file" accept="image/*" onChange={handleImageUpload} className="sr-only" />
+                    Upload
+                    <input
+                      type="file"
+                      accept="image/*"
+                      multiple
+                      onChange={handleImageUpload}
+                      className="sr-only"
+                    />
                   </label>
                 </div>
+                {formError ? (
+                  <p className="text-sm text-amber-100">{formError}</p>
+                ) : null}
               </div>
-            </label>
+            </section>
 
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <Field label="Name" value={form.name} onChange={(value) => updateForm("name", value)} required />
@@ -428,12 +543,7 @@ export function AdminPanel() {
                     className="grid gap-4 rounded-lg border border-white/10 bg-[#070a12]/58 p-3 md:grid-cols-[92px_1fr_auto]"
                   >
                     <div className="relative aspect-square overflow-hidden rounded-md bg-[#111827]">
-                      {product.image.startsWith("data:") ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={product.image} alt="" className="h-full w-full object-cover" />
-                      ) : (
-                        <Image src={product.image} alt="" fill sizes="92px" className="object-cover" />
-                      )}
+                      <AdminImage src={product.images[0]} />
                     </div>
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2">
@@ -449,7 +559,7 @@ export function AdminPanel() {
                         ) : null}
                       </div>
                       <p className="mt-1 text-xs uppercase tracking-[0.16em] text-[#dde6f2]/45">
-                        {product.sku} / {product.category}
+                        {product.sku} / {product.category} / {product.images.length} images
                       </p>
                       <div className="mt-4 grid gap-3 text-sm text-[#dde6f2]/66 sm:grid-cols-4">
                         <span>${product.price}</span>
@@ -552,4 +662,13 @@ function Textarea({
       />
     </label>
   );
+}
+
+function AdminImage({ src }: { src: string }) {
+  if (src.startsWith("data:")) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={src} alt="" className="h-full w-full object-cover" />;
+  }
+
+  return <Image src={src} alt="" fill sizes="160px" className="object-cover" />;
 }
