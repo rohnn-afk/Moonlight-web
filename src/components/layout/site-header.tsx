@@ -17,18 +17,18 @@ export function SiteHeader() {
   const count = items.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#070a12]/72 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#070a12]/82 shadow-[0_14px_60px_rgba(0,0,0,0.28)] backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <span className="grid size-9 place-items-center rounded-full border border-[#dde6f2]/20 bg-white/5">
+          <span className="grid size-9 place-items-center rounded-full border border-[#dde6f2]/20 bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
             <Moon size={17} />
           </span>
           <span className="editorial-serif text-xl tracking-wide">Lune Maison</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm text-[#dde6f2]/78 md:flex">
+        <nav className="hidden items-center gap-7 text-sm text-[#dde6f2]/76 md:flex">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="transition hover:text-[#f7f1e8]">
+            <Link key={item.href} href={item.href} className="rounded-full px-2 py-1 transition hover:bg-white/6 hover:text-[#f7f1e8]">
               {item.label}
             </Link>
           ))}

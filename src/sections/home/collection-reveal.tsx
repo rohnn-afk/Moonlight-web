@@ -4,12 +4,14 @@ import { collections } from "@/data/products";
 
 export function CollectionReveal() {
   return (
-    <section className="bg-[#0b101b] py-24">
+    <section className="border-y border-white/8 bg-[#0b101b] py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="text-xs uppercase tracking-[0.32em] text-[#c8b68a]">Collections</p>
-            <h2 className="editorial-serif mt-4 text-5xl sm:text-6xl">Designed after dark.</h2>
+            <h2 className="editorial-serif mt-4 text-5xl leading-none sm:text-6xl">
+              Designed after dark.
+            </h2>
           </div>
           <p className="max-w-md text-sm leading-6 text-[#dde6f2]/62">
             Editorial atmosphere meets practical shopping. Every collection is
