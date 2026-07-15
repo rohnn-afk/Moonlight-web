@@ -33,19 +33,10 @@ export function HeroSection() {
                 className="object-cover object-[54%_44%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,18,0)_0%,rgba(7,10,18,0.08)_46%,rgba(7,10,18,0.72)_100%)]" />
-              <div className="absolute inset-x-8 bottom-8">
-                <div className="h-px bg-gradient-to-r from-transparent via-[#c8b68a]/70 to-transparent" />
-                <div className="mt-5 flex items-end justify-between gap-6">
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.24em] text-[#e8d6aa]">
-                      Moon room edit
-                    </p>
-                    <p className="editorial-serif mt-2 text-3xl leading-none text-[#f7f1e8]">
-                      Silk after dark.
-                    </p>
-                  </div>
-                  <p className="whitespace-nowrap text-sm text-[#f7f1e8]">From $198</p>
-                </div>
+              <div className="absolute bottom-8 right-8 border-t border-[#c8b68a]/60 pt-3">
+                <p className="whitespace-nowrap text-sm font-medium text-[#f7f1e8]">
+                  From $198
+                </p>
               </div>
             </div>
 
@@ -72,7 +63,7 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-tr from-[#070a12]/20 via-transparent to-[#f7f1e8]/10" />
             </div>
 
-            <div className="absolute bottom-5 left-20 flex items-center gap-4 border-y border-white/12 bg-[#070a12]/58 px-6 py-4 shadow-[0_18px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+            <div className="absolute bottom-5 left-20 flex items-center gap-4 border-y border-white/12 bg-[#070a12]/70 px-6 py-4 shadow-[0_18px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
               <div>
                 <p className="text-xl font-medium text-[#f7f1e8]">19</p>
                 <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[#dde6f2]/50">
