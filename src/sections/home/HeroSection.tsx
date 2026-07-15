@@ -22,17 +22,17 @@ export function HeroSection() {
         <HeroCopy />
         <div className="hidden min-h-[640px] items-center justify-end lg:flex">
           <div className="relative h-[650px] w-full max-w-[660px]">
-            <div className="absolute left-8 top-0 h-[620px] w-[520px] rounded-full border border-[#c8b68a]/18" />
-            <div className="absolute left-20 top-12 h-[520px] w-[430px] rounded-full border border-[#dde6f2]/10" />
-            <div className="absolute right-8 top-12 h-[560px] w-[390px] overflow-hidden rounded-t-[220px] rounded-b-[34px] border border-white/14 bg-[#070a12]/40 shadow-[0_34px_130px_rgba(0,0,0,0.46)]">
+            <div className="absolute left-4 top-0 h-[630px] w-[560px] rounded-full border border-[#c8b68a]/16" />
+            <div className="absolute left-24 top-14 h-[510px] w-[410px] rounded-full border border-[#dde6f2]/10" />
+            <div className="absolute right-6 top-5 h-[590px] w-[430px] overflow-hidden rounded-t-[240px] rounded-b-[36px] border border-white/14 bg-[#070a12]/40 shadow-[0_34px_130px_rgba(0,0,0,0.46)]">
               <Image
-                src="/images/product-vignettes.png"
+                src="/images/atelier-showcase.png"
                 alt="Curated luxury nightwear pieces"
                 fill
-                sizes="390px"
-                className="object-cover"
+                sizes="430px"
+                className="object-cover object-[54%_44%]"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,18,0.04)_0%,rgba(7,10,18,0.18)_48%,rgba(7,10,18,0.72)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,18,0)_0%,rgba(7,10,18,0.08)_46%,rgba(7,10,18,0.72)_100%)]" />
               <div className="absolute inset-x-8 bottom-8">
                 <div className="h-px bg-gradient-to-r from-transparent via-[#c8b68a]/70 to-transparent" />
                 <div className="mt-5 flex items-end justify-between gap-6">
@@ -49,7 +49,7 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="absolute left-10 top-28 max-w-[230px]">
+            <div className="absolute left-4 top-28 max-w-[235px]">
               <p className="text-[11px] uppercase tracking-[0.28em] text-[#e8d6aa]">
                 Atelier calm
               </p>
@@ -61,18 +61,18 @@ export function HeroSection() {
               </p>
             </div>
 
-            <div className="absolute bottom-24 left-0 h-[230px] w-[300px] overflow-hidden rounded-tl-[90px] rounded-br-[90px] border border-white/14 bg-[#070a12]/44 shadow-[0_26px_90px_rgba(0,0,0,0.38)]">
+            <div className="absolute bottom-24 left-0 h-[210px] w-[280px] overflow-hidden rounded-tl-[92px] rounded-br-[92px] border border-white/14 bg-[#070a12]/44 shadow-[0_26px_90px_rgba(0,0,0,0.38)]">
               <Image
                 src="/images/fabric-macro-silk.png"
                 alt="Silk and lace material detail"
                 fill
-                sizes="300px"
+                sizes="280px"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-[#070a12]/20 via-transparent to-[#f7f1e8]/10" />
             </div>
 
-            <div className="absolute bottom-5 left-16 flex items-center gap-4 border-y border-white/12 bg-[#070a12]/58 px-6 py-4 shadow-[0_18px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+            <div className="absolute bottom-5 left-20 flex items-center gap-4 border-y border-white/12 bg-[#070a12]/58 px-6 py-4 shadow-[0_18px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
               <div>
                 <p className="text-xl font-medium text-[#f7f1e8]">19</p>
                 <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[#dde6f2]/50">
