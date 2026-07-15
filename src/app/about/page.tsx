@@ -8,7 +8,7 @@ export default function AboutPage() {
           <p className="text-xs uppercase tracking-[0.32em] text-[#c8b68a]">Maison</p>
           <h1 className="editorial-serif mt-4 text-6xl leading-none">Nightwear with a slower pulse.</h1>
           <p className="mt-6 text-base leading-8 text-[#dde6f2]/70">
-            moonlightfeels designs premium night clothing with the restraint of a
+            Moonlight Feels designs premium night clothing with the restraint of a
             fashion house and the softness of a private ritual.
           </p>
         </div>

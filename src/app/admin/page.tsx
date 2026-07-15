@@ -1,7 +1,7 @@
 import { AdminPanel } from "@/components/admin/admin-panel";
 
 export const metadata = {
-  title: "Admin | moonlightfeels",
+  title: "Admin | Moonlight Feels",
   description: "Manage products, inventory, publishing status, and merchandising.",
 };
 

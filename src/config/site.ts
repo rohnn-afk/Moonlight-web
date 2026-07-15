@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "moonlightfeels",
-  title: "moonlightfeels | Luxury Silk Nightwear",
+  name: "Moonlight Feels",
+  title: "Moonlight Feels | Luxury Silk Nightwear",
   description:
     "Premium silk nightwear, robes, sleep dresses, and lounge layers for refined evening rituals.",
   url: "https://rohnn-afk.github.io/Moonlight-web",
