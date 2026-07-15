@@ -22,6 +22,7 @@ import {
   getBrowserCatalogProducts,
   saveBrowserCatalogProducts,
 } from "@/lib/catalog-storage";
+import { assetPath } from "@/lib/assets";
 import type { Product, ProductImages } from "@/types/product";
 
 type ProductForm = {
@@ -658,5 +659,5 @@ function AdminImage({ src }: { src: string }) {
     return <img src={src} alt="" className="h-full w-full object-cover" />;
   }
 
-  return <Image src={src} alt="" fill sizes="160px" className="object-cover" />;
+  return <Image src={assetPath(src)} alt="" fill sizes="160px" className="object-cover" />;
 }

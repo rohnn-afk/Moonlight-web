@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/assets";
 
 export function FabricStory() {
   return (
     <section className="mx-auto grid max-w-7xl gap-10 px-4 py-24 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
       <div className="relative min-h-[520px] overflow-hidden rounded-lg border border-white/10 shadow-[0_28px_100px_rgba(0,0,0,0.28)]">
         <Image
-          src="/images/fabric-macro-silk.png"
+          src={assetPath("/images/fabric-macro-silk.png")}
           alt="Macro detail of silk satin with lace"
           fill
           sizes="(min-width: 1024px) 55vw, 100vw"

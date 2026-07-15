@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: "/images/hero-moonlit-room.png",
+        url: `${siteConfig.url}/images/hero-moonlit-room.png`,
         width: 1200,
         height: 630,
         alt: "Moonlit luxury nightwear boutique",

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { collections } from "@/data/products";
+import { assetPath } from "@/lib/assets";
 
 export function CollectionReveal() {
   return (
@@ -29,7 +30,7 @@ export function CollectionReveal() {
               }`}
             >
               <Image
-                src={collection.image}
+                src={assetPath(collection.image)}
                 alt={collection.name}
                 fill
                 sizes="(min-width: 768px) 25vw, 100vw"

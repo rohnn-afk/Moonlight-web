@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { assetPath } from "@/lib/assets";
 
 export function ProductGallery({
   images,
@@ -29,7 +30,7 @@ export function ProductGallery({
             aria-label={`View ${productName} image ${index + 1}`}
           >
             <Image
-              src={image}
+              src={assetPath(image)}
               alt=""
               fill
               sizes="92px"
@@ -40,7 +41,7 @@ export function ProductGallery({
       </div>
       <div className="order-1 relative aspect-[4/5] overflow-hidden rounded-lg border border-white/12 bg-[#111827] lg:order-2">
         <Image
-          src={activeImage}
+          src={assetPath(activeImage)}
           alt={productName}
           fill
           priority

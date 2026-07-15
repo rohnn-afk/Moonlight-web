@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/data/products";
+import { assetPath } from "@/lib/assets";
 
 export default function LookbookPage() {
   return (
     <main className="pb-24 pt-16">
       <section className="relative min-h-[76vh] overflow-hidden">
-        <Image src="/images/collection-moonlit-lineup.png" alt="Moonlit nightwear lookbook" fill priority className="object-cover" />
+        <Image src={assetPath("/images/collection-moonlit-lineup.png")} alt="Moonlit nightwear lookbook" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#070a12]/88 via-[#070a12]/44 to-transparent" />
         <div className="relative mx-auto flex min-h-[76vh] max-w-7xl items-center px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
@@ -27,7 +28,7 @@ export default function LookbookPage() {
               href={`/products/${product.handle}`}
               className="group relative min-h-[520px] overflow-hidden rounded-lg soft-border"
             >
-              <Image src={product.images[0]} alt={product.name} fill className="object-cover transition duration-700 group-hover:scale-105" />
+              <Image src={assetPath(product.images[0])} alt={product.name} fill className="object-cover transition duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#070a12]/88 to-transparent" />
               <div className="absolute bottom-0 p-6">
                 <p className="text-xs uppercase tracking-[0.28em] text-[#c8b68a]">Shop the look</p>

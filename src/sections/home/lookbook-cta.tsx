@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowRight, Globe2, PackageCheck, ShieldCheck } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
+import { assetPath } from "@/lib/assets";
 
 const campaignStats = [
   { value: "04", label: "Ritual edits" },
@@ -19,7 +20,7 @@ export function LookbookCta() {
     <section className="relative overflow-hidden border-y border-white/8 bg-[#070a12] py-24">
       <div className="absolute inset-0">
         <Image
-          src="/images/collection-moonlit-lineup.png"
+          src={assetPath("/images/collection-moonlit-lineup.png")}
           alt="Moonlit nightwear collection campaign"
           fill
           sizes="100vw"

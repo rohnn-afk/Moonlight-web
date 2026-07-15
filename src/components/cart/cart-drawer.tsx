@@ -5,6 +5,7 @@ import Link from "next/link";
 import { X } from "lucide-react";
 import { useCartStore } from "@/store/cart-store";
 import { ButtonLink } from "@/components/ui/button";
+import { assetPath } from "@/lib/assets";
 import { formatCurrency } from "@/lib/format";
 
 export function CartDrawer() {
@@ -66,7 +67,7 @@ export function CartDrawer() {
                   className="grid grid-cols-[86px_1fr] gap-4 rounded-lg border border-white/10 bg-white/[0.035] p-3"
                 >
                   <div className="relative aspect-[4/5] overflow-hidden rounded-md">
-                    <Image src={item.product.images[0]} alt="" fill className="object-cover" />
+                    <Image src={assetPath(item.product.images[0])} alt="" fill className="object-cover" />
                   </div>
                   <div>
                     <Link href={`/products/${item.product.handle}`} className="font-medium">

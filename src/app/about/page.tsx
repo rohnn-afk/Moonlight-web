@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/assets";
 
 export default function AboutPage() {
   return (
@@ -13,7 +14,7 @@ export default function AboutPage() {
           </p>
         </div>
         <div className="relative aspect-[4/3] overflow-hidden rounded-lg soft-border">
-          <Image src="/images/fabric-macro-silk.png" alt="Silk fabric macro" fill className="object-cover" />
+          <Image src={assetPath("/images/fabric-macro-silk.png")} alt="Silk fabric macro" fill className="object-cover" />
         </div>
       </div>
     </main>

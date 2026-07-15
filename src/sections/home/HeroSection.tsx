@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/assets";
 import { HeroCopy } from "@/sections/home/HeroCopy";
 
 export function HeroSection() {
@@ -6,7 +7,7 @@ export function HeroSection() {
     <section className="relative min-h-screen overflow-hidden bg-[#070a12] pt-16">
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-moonlit-room.png"
+          src={assetPath("/images/hero-moonlit-room.png")}
           alt="Premium moonlit nightwear boutique"
           fill
           priority
@@ -26,7 +27,7 @@ export function HeroSection() {
             <div className="absolute left-24 top-14 h-[510px] w-[410px] rounded-full border border-[#dde6f2]/10" />
             <div className="absolute right-6 top-5 h-[590px] w-[430px] overflow-hidden rounded-t-[240px] rounded-b-[36px] border border-white/14 bg-[#070a12]/40 shadow-[0_34px_130px_rgba(0,0,0,0.46)]">
               <Image
-                src="/images/atelier-showcase.png"
+                src={assetPath("/images/atelier-showcase.png")}
                 alt="Curated luxury nightwear pieces"
                 fill
                 sizes="430px"
@@ -54,7 +55,7 @@ export function HeroSection() {
 
             <div className="absolute bottom-24 left-0 h-[210px] w-[280px] overflow-hidden rounded-tl-[92px] rounded-br-[92px] border border-white/14 bg-[#070a12]/44 shadow-[0_26px_90px_rgba(0,0,0,0.38)]">
               <Image
-                src="/images/fabric-macro-silk.png"
+                src={assetPath("/images/fabric-macro-silk.png")}
                 alt="Silk and lace material detail"
                 fill
                 sizes="280px"

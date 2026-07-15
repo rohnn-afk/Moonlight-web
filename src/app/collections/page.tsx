@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { collections } from "@/data/products";
+import { assetPath } from "@/lib/assets";
 
 export default function CollectionsPage() {
   return (
@@ -14,7 +15,7 @@ export default function CollectionsPage() {
             href={`/collections/${collection.handle}`}
             className="group relative min-h-[420px] overflow-hidden rounded-lg soft-border"
           >
-            <Image src={collection.image} alt={collection.name} fill className="object-cover transition duration-700 group-hover:scale-105" />
+            <Image src={assetPath(collection.image)} alt={collection.name} fill className="object-cover transition duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#070a12]/90 via-[#070a12]/20 to-transparent" />
             <div className="absolute bottom-0 p-6">
               <h2 className="editorial-serif text-4xl">{collection.name}</h2>
