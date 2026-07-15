@@ -1,21 +1,30 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import { Search } from "lucide-react";
 import { ProductCard } from "@/components/product/product-card";
+import {
+  getBrowserCatalogProducts,
+  subscribeToBrowserCatalog,
+} from "@/lib/catalog-storage";
 import type { Product } from "@/types/product";
 
 export function ProductSearch({ products }: { products: Product[] }) {
   const [query, setQuery] = useState("");
+  const catalog = useSyncExternalStore(
+    subscribeToBrowserCatalog,
+    getBrowserCatalogProducts,
+    () => products,
+  );
 
   const results = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
 
     if (!normalizedQuery) {
-      return products;
+      return catalog;
     }
 
-    return products.filter((product) =>
+    return catalog.filter((product) =>
       [
         product.name,
         product.category,
@@ -28,7 +37,7 @@ export function ProductSearch({ products }: { products: Product[] }) {
         .toLowerCase()
         .includes(normalizedQuery),
     );
-  }, [products, query]);
+  }, [catalog, query]);
 
   return (
     <section className="mt-8">

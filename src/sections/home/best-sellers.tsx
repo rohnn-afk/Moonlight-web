@@ -1,5 +1,5 @@
 import { products } from "@/data/products";
-import { ProductCard } from "@/components/product/product-card";
+import { ClientProductGrid } from "@/components/product/client-product-grid";
 
 export function BestSellers() {
   return (
@@ -16,11 +16,7 @@ export function BestSellers() {
           quick add stay visible without breaking the boutique mood.
         </p>
       </div>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {products.map((product) => (
-          <ProductCard key={product.handle} product={product} />
-        ))}
-      </div>
+      <ClientProductGrid initialProducts={products} limit={4} />
     </section>
   );
 }

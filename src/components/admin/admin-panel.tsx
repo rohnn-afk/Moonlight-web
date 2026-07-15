@@ -18,10 +18,11 @@ import {
   Upload,
 } from "lucide-react";
 import type { LucideProps } from "lucide-react";
-import { products as seededProducts } from "@/data/products";
+import {
+  getBrowserCatalogProducts,
+  saveBrowserCatalogProducts,
+} from "@/lib/catalog-storage";
 import type { Product, ProductImages } from "@/types/product";
-
-const STORAGE_KEY = "moonlight-feels-admin-products-v2";
 
 type ProductForm = {
   name: string;
@@ -81,20 +82,7 @@ function parseList(value: string) {
 }
 
 function getStoredProducts() {
-  if (typeof window === "undefined") {
-    return seededProducts;
-  }
-
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (!stored) {
-    return seededProducts;
-  }
-
-  try {
-    return JSON.parse(stored) as Product[];
-  } catch {
-    return seededProducts;
-  }
+  return getBrowserCatalogProducts();
 }
 
 function statusStyles(status: Product["status"]) {
@@ -123,7 +111,7 @@ export function AdminPanel() {
       return;
     }
 
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(catalog));
+    saveBrowserCatalogProducts(catalog);
   }, [catalog]);
 
   const metrics = useMemo(() => {

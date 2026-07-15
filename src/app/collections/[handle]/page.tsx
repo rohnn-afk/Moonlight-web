@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { CollectionReveal } from "@/sections/home/collection-reveal";
-import { ProductCard } from "@/components/product/product-card";
+import { ClientProductGrid } from "@/components/product/client-product-grid";
 import { collections, getCollection, products } from "@/data/products";
 
 export const dynamicParams = false;
@@ -23,10 +23,6 @@ export default async function CollectionPage({
     notFound();
   }
 
-  const collectionProducts = products.filter(
-    (product) => product.category === collection.name,
-  );
-
   return (
     <main className="pb-24 pt-32">
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -42,10 +38,8 @@ export default async function CollectionPage({
             </button>
           ))}
         </div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {collectionProducts.map((product) => (
-            <ProductCard key={product.handle} product={product} />
-          ))}
+        <div className="mt-10">
+          <ClientProductGrid initialProducts={products} category={collection.name} />
         </div>
       </section>
       <CollectionReveal />
