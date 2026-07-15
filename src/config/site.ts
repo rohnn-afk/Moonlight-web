@@ -1,10 +1,10 @@
 export const siteConfig = {
-  name: "Lune Maison",
-  title: "Lune Maison | Luxury Silk Nightwear",
+  name: "moonlightfeels",
+  title: "moonlightfeels | Luxury Silk Nightwear",
   description:
     "Premium silk nightwear, robes, sleep dresses, and lounge layers for refined evening rituals.",
   url: "https://rohnn-afk.github.io/Moonlight-web",
-  contactEmail: "clientcare@lunemaison.com",
+  contactEmail: "clientcare@moonlightfeels.com",
 };
 
 export const primaryNav = [

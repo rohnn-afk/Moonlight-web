@@ -1,4 +1,4 @@
-# Moonlight Web
+# moonlightfeels
 
 Premium ecommerce storefront for luxury nightwear, built with Next.js and deployed as a static GitHub Pages site.
 
