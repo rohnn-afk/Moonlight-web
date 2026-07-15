@@ -1,10 +1,10 @@
 # Moonlight Web
 
-Premium ecommerce storefront for luxury nightwear, built with Next.js and prepared for static deployment on GitHub Pages.
+Premium ecommerce storefront for luxury nightwear, built with Next.js and deployed as a static GitHub Pages site.
 
 ## Features
 
-- Editorial storefront with collections, product pages, cart drawer, account, policies, and checkout placeholder.
+- Editorial storefront with collections, product pages, cart drawer, account, policies, and checkout flow.
 - Admin panel at `/admin` for product upload, image preview, status control, and inventory tracking.
 - Static export configuration for GitHub Pages.
 - GitHub Actions workflow for automatic Pages deployment from `main`.
@@ -18,9 +18,10 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-## Production Build
+## Quality Gates
 
 ```bash
+npm run check
 npm run build
 ```
 

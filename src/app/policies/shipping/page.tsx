@@ -1,13 +1,23 @@
-export default function ShippingPolicyPage() {
-  return <Policy title="Shipping" body="Complimentary premium delivery thresholds, dispatch windows, and tracking details will live here." />;
-}
+import { PolicyContent } from "@/app/policies/policy-content";
 
-function Policy({ title, body }: { title: string; body: string }) {
+export default function ShippingPolicyPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-      <p className="text-xs uppercase tracking-[0.32em] text-[#c8b68a]">Policy</p>
-      <h1 className="editorial-serif mt-4 text-6xl">{title}</h1>
-      <p className="mt-6 text-base leading-8 text-[#dde6f2]/68">{body}</p>
-    </main>
+    <PolicyContent
+      title="Shipping"
+      sections={[
+        {
+          title: "Dispatch",
+          body: "In-stock pieces are prepared within one business day, with tracking shared as soon as the parcel leaves the studio.",
+        },
+        {
+          title: "Delivery",
+          body: "Premium tracked delivery is available on every order, with complimentary thresholds shown before checkout.",
+        },
+        {
+          title: "Packaging",
+          body: "Each order is packed in protective, gift-ready materials suitable for silk, lace, and delicate finishes.",
+        },
+      ]}
+    />
   );
 }

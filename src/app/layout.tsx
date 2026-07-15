@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { CartDrawer } from "@/components/cart/cart-drawer";
+import { siteConfig } from "@/config/site";
 
 const sans = Inter({
   subsets: ["latin"],
@@ -17,9 +18,26 @@ const serif = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Lune Maison | Moonlit Luxury Nightwear",
-  description:
-    "Premium silk nightwear, robes, sleep dresses, and lounge layers in a cinematic moonlit boutique.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/images/hero-moonlit-room.png",
+        width: 1200,
+        height: 630,
+        alt: "Moonlit luxury nightwear boutique",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

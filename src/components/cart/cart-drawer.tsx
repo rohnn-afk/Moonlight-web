@@ -5,6 +5,7 @@ import Link from "next/link";
 import { X } from "lucide-react";
 import { useCartStore } from "@/store/cart-store";
 import { ButtonLink } from "@/components/ui/button";
+import { formatCurrency } from "@/lib/format";
 
 export function CartDrawer() {
   const { isOpen, items, closeCart, removeItem } = useCartStore();
@@ -75,7 +76,9 @@ export function CartDrawer() {
                       {item.size} / Qty {item.quantity}
                     </p>
                     <div className="mt-4 flex items-center justify-between">
-                      <p className="text-sm">${item.product.price * item.quantity}</p>
+                      <p className="text-sm">
+                        {formatCurrency(item.product.price * item.quantity)}
+                      </p>
                       <button
                         type="button"
                         onClick={() => removeItem(item.product.handle, item.size)}
@@ -94,7 +97,7 @@ export function CartDrawer() {
         <div className="border-t border-white/10 pt-5">
           <div className="mb-4 flex items-center justify-between text-sm">
             <span className="text-[#dde6f2]/62">Subtotal</span>
-            <span className="text-lg">${subtotal}</span>
+            <span className="text-lg">{formatCurrency(subtotal)}</span>
           </div>
           <ButtonLink href="/checkout" className="w-full">
             Continue to checkout

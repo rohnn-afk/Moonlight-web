@@ -3,14 +3,7 @@
 import Link from "next/link";
 import { Menu, Moon, Search, Settings, ShoppingBag, UserRound } from "lucide-react";
 import { useCartStore } from "@/store/cart-store";
-
-const nav = [
-  { href: "/collections/silk-sets", label: "Silk Sets" },
-  { href: "/collections/robes", label: "Robes" },
-  { href: "/lookbook", label: "Lookbook" },
-  { href: "/about", label: "Maison" },
-  { href: "/admin", label: "Admin" },
-];
+import { primaryNav, siteConfig } from "@/config/site";
 
 export function SiteHeader() {
   const { items, openCart } = useCartStore();
@@ -23,11 +16,11 @@ export function SiteHeader() {
           <span className="grid size-9 place-items-center rounded-full border border-[#dde6f2]/20 bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
             <Moon size={17} />
           </span>
-          <span className="editorial-serif text-xl tracking-wide">Lune Maison</span>
+          <span className="editorial-serif text-xl tracking-wide">{siteConfig.name}</span>
         </Link>
 
         <nav className="hidden items-center gap-7 text-sm text-[#dde6f2]/76 md:flex">
-          {nav.map((item) => (
+          {primaryNav.map((item) => (
             <Link key={item.href} href={item.href} className="rounded-full px-2 py-1 transition hover:bg-white/6 hover:text-[#f7f1e8]">
               {item.label}
             </Link>

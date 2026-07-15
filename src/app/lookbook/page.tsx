@@ -14,7 +14,7 @@ export default function LookbookPage() {
             <h1 className="editorial-serif mt-5 text-7xl leading-none">The moon room campaign.</h1>
             <p className="mt-6 text-base leading-8 text-[#dde6f2]/70">
               Shop styled rituals built from silk sets, robes, sleep dresses,
-              and lounge layers.
+              and lounge layers with editorial clarity.
             </p>
           </div>
         </div>

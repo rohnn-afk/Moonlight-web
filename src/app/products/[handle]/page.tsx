@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ProductCard } from "@/components/product/product-card";
 import { AddToCartPanel } from "@/components/product/add-to-cart-panel";
 import { getProduct, products } from "@/data/products";
+import { formatCurrency } from "@/lib/format";
 
 export const dynamicParams = false;
 
@@ -42,7 +43,7 @@ export default async function ProductPage({
         <div className="lg:sticky lg:top-24 lg:self-start">
           <p className="text-xs uppercase tracking-[0.32em] text-[#c8b68a]">{product.category}</p>
           <h1 className="editorial-serif mt-4 text-6xl leading-none">{product.name}</h1>
-          <p className="mt-5 text-2xl">${product.price}</p>
+          <p className="mt-5 text-2xl">{formatCurrency(product.price)}</p>
           <p className="mt-6 text-base leading-8 text-[#dde6f2]/70">{product.description}</p>
           <AddToCartPanel product={product} />
           <div className="mt-8 grid gap-3">

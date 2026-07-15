@@ -1,12 +1,23 @@
+import { PolicyContent } from "@/app/policies/policy-content";
+
 export default function ReturnsPolicyPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-      <p className="text-xs uppercase tracking-[0.32em] text-[#c8b68a]">Policy</p>
-      <h1 className="editorial-serif mt-4 text-6xl">Returns</h1>
-      <p className="mt-6 text-base leading-8 text-[#dde6f2]/68">
-        Easy exchanges and return eligibility details will be connected to the
-        production commerce policy.
-      </p>
-    </main>
+    <PolicyContent
+      title="Returns"
+      sections={[
+        {
+          title: "Eligibility",
+          body: "Unworn pieces with tags attached may be returned or exchanged within the stated return window shown at checkout.",
+        },
+        {
+          title: "Exchanges",
+          body: "Size exchanges are prioritized where stock is available, with reserved inventory released only after the request is confirmed.",
+        },
+        {
+          title: "Care standard",
+          body: "Silk and lace items must be returned free of fragrance, marks, and wear so every client receives boutique-grade product.",
+        },
+      ]}
+    />
   );
 }

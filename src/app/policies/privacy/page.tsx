@@ -1,11 +1,23 @@
+import { PolicyContent } from "@/app/policies/policy-content";
+
 export default function PrivacyPolicyPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-      <p className="text-xs uppercase tracking-[0.32em] text-[#c8b68a]">Policy</p>
-      <h1 className="editorial-serif mt-4 text-6xl">Privacy</h1>
-      <p className="mt-6 text-base leading-8 text-[#dde6f2]/68">
-        Privacy, customer data, and analytics disclosures will live here.
-      </p>
-    </main>
+    <PolicyContent
+      title="Privacy"
+      sections={[
+        {
+          title: "Customer data",
+          body: "Contact, delivery, and order details are used to fulfill purchases, provide support, and maintain account history.",
+        },
+        {
+          title: "Analytics",
+          body: "Store performance signals may be measured to improve browsing, product discovery, and checkout quality.",
+        },
+        {
+          title: "Control",
+          body: "Customers can request updates to account information or ask for support with privacy-related questions through client care.",
+        },
+      ]}
+    />
   );
 }

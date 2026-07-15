@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Heart, Plus, Sparkles } from "lucide-react";
 import type { Product } from "@/types/product";
 import { useCartStore } from "@/store/cart-store";
+import { formatCurrency } from "@/lib/format";
 
 export function ProductCard({ product }: { product: Product }) {
   const addItem = useCartStore((state) => state.addItem);
@@ -43,10 +44,10 @@ export function ProductCard({ product }: { product: Product }) {
               <h3 className="font-medium text-[#f7f1e8]">{product.name}</h3>
             </Link>
             <div className="text-right">
-              <p className="text-sm text-[#f7f1e8]">${product.price}</p>
+              <p className="text-sm text-[#f7f1e8]">{formatCurrency(product.price)}</p>
               {product.compareAtPrice ? (
                 <p className="text-xs text-[#dde6f2]/42 line-through">
-                  ${product.compareAtPrice}
+                  {formatCurrency(product.compareAtPrice)}
                 </p>
               ) : null}
             </div>
