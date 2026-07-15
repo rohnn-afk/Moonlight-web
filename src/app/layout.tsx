@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville, Plus_Jakarta_Sans } from "next/font/google";
+import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 import { siteConfig } from "@/config/site";
 
-const sans = Plus_Jakarta_Sans({
+const sans = Manrope({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
 });
 
-const serif = Libre_Baskerville({
+const serif = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600"],
   variable: "--font-serif",
 });
 

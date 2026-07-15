@@ -29,7 +29,7 @@ export function HeroCopy() {
       <motion.h1
         variants={reveal}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="editorial-serif mt-7 max-w-3xl text-5xl font-medium leading-[0.95] text-balance sm:text-6xl lg:text-[88px]"
+        className="editorial-serif mt-7 max-w-3xl text-5xl font-medium leading-[0.98] text-balance sm:text-6xl lg:text-[86px]"
       >
         The private atelier for silk after dark.
       </motion.h1>

@@ -61,6 +61,7 @@ select {
 .editorial-serif {
   font-family: var(--font-serif), Georgia, serif;
   letter-spacing: 0;
+  font-feature-settings: "kern", "liga", "swsh";
 }
 
 .moon-panel {
